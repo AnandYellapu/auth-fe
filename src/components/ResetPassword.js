@@ -1,61 +1,3 @@
-// import React, { useState } from 'react';
-// import axios from 'axios';
-
-// const ResetPassword = () => {
-//   const [token, setToken] = useState('');
-//   const [password, setPassword] = useState('');
-//   const [message, setMessage] = useState('');
-
-//   const handleTokenChange = (event) => {
-//     setToken(event.target.value);
-//   };
-
-//   const handlePasswordChange = (event) => {
-//     setPassword(event.target.value);
-//   };
-
-//   const handleResetPassword = async () => {
-//     try {
-//       const response = await axios.post('http://localhost:5000/api/users/reset-password', {
-//         token,
-//         password,
-//       });
-//       setMessage(response.data.message);
-//     } catch (error) {
-//       setMessage(error.response.data.error);
-//     }
-//   };
-
-//   return (
-//     <div className='auth-container'>
-//       <div className='auth-form'>
-//       <h2>Reset Password</h2>
-//       <input
-//         type="text"
-//         value={token}
-//         onChange={handleTokenChange}
-//         placeholder="Enter reset token"
-//       />
-//       <input
-//         type="password"
-//         value={password}
-//         onChange={handlePasswordChange}
-//         placeholder="Enter new password"
-//       />
-//       <button onClick={handleResetPassword}>Submit</button>
-//       {message && <p>{message}</p>}
-//       </div>
-//       </div>
-//   );
-// };
-
-// export default ResetPassword;
-
-
-
-
-
-
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -79,7 +21,7 @@ const ResetPassword = () => {
 
   const handleResetPassword = async () => {
     try {
-      const response = await axios.post('http://localhost:5000/api/users/reset-password', {
+      const response = await axios.post(`http://localhost:5000/api/users/reset-password/${token}`, {
         token,
         password,
       });

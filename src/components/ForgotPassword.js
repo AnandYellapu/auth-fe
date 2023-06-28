@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -17,12 +17,13 @@ const ForgotPassword = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:5000/api/users/forgot-password', { email });
-      setMessage(response.data.message);
-      toast.success(response.data.message);
+      await axios.post('http://localhost:5000/api/users/forgot-password', { email });
+      // setMessage('An email has been sent with further instructions.');
+      toast.success('An Reset Password link is sent to your mail.');
       navigate('/reset-Password/:token');
     } catch (error) {
-      setMessage(error.response.data.error);
+      setMessage('Failed to send reset password email.');
+      toast.error('Failed to send reset password email');
     }
   };
 
@@ -45,6 +46,5 @@ const ForgotPassword = () => {
       </div>
   );
 };
-
 
 export default ForgotPassword;
