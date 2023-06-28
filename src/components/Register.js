@@ -17,7 +17,7 @@ const Register = () => {
     };
 
     axios
-      .post('http://localhost:5000/api/users/register', userData)
+      .post('https://auth-server-jq9b.onrender.com/api/users/register', userData)
       .then((response) => {
         console.log(response.data);
         navigate('/');
