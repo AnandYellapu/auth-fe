@@ -22,7 +22,6 @@ const ResetPassword = () => {
   const handleResetPassword = async () => {
     try {
       const response = await axios.post(`https://auth-server-jq9b.onrender.com/api/users/reset-password/${token}`, {
-        token,
         password,
       });
       setMessage(response.data.message);
