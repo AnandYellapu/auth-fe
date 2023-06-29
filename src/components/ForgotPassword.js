@@ -19,7 +19,7 @@ const ForgotPassword = () => {
     try {
       await axios.post('https://auth-server-jq9b.onrender.com/api/users/forgot-password', { email });
       // setMessage('An email has been sent with further instructions.');
-      toast.success('An Reset Password link is sent to your mail.');
+      toast.success('An Reset Password Token is sent to your mail.');
       navigate('/reset-Password/:token');
     } catch (error) {
       setMessage('Failed to send reset password email.');
