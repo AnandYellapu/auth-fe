@@ -21,16 +21,16 @@ const ResetPassword = () => {
 
   const handleResetPassword = async () => {
     try {
-      const response = await axios.post(`http://localhost:5000/api/users/reset-password/${token}`, {
+      const response = await axios.post('https://auth-server-jq9b.onrender.com/api/users/reset-password/:token', {
         token,
         password,
       });
       setMessage(response.data.message);
-      toast.success(response.data.message); // Display success toast
+      toast.success(response.data.message);
       navigate('/');
     } catch (error) {
       setMessage(error.response.data.error);
-      toast.error(error.response.data.error); // Display error toast
+      toast.error(error.response.data.error);
     }
   };
 
@@ -59,4 +59,3 @@ const ResetPassword = () => {
 };
 
 export default ResetPassword;
-
