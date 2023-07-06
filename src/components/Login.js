@@ -17,7 +17,7 @@ const Login = () => {
     };
 
     axios
-      .post('http://localhost:5000/api/users/login', userData)
+      .post('https://auth-server-jq9b.onrender.com/api/users/login', userData)
       .then((response) => {
         console.log(response.data);
         localStorage.setItem('token', response.data.token);
