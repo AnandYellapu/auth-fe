@@ -17,7 +17,7 @@ const ForgotPassword = () => {
     e.preventDefault();
 
     try {
-      await axios.post('https://auth-server-jq9b.onrender.com/api/users/forgot-password', { email });
+      await axios.post('https://auth-server-bml1.onrender.com/api/users/forgot-password', { email });
       // setMessage('An email has been sent with further instructions.');
       toast.success('An Reset Password Token is sent to your mail.');
       navigate('/reset-Password/:token');
